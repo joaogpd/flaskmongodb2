@@ -5,16 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/index.css') }}">
 </head>
 <body>
     <h1>Welcome to the landing page of this Flask project</h1>
     <h2>This is just some filler text, don't mind it too much</h2>
     <hr>
     <div class="simple_form">
-        <form method="get">
-            <label for="nome">Enter the restaurant name you want to see information about:</label>
+        <form method="post">
+            <label for="nome">Enter the name of the restaurant you want to see information about:</label>
+            <br><br>
             <input type="text" name="nome">
         </form>
+        <hr>
+        <div class="show">
+        {% for res in result %}
+            <p>Horario de funcionamento: {{ res["horario"] }}</p>
+            <p>Faixa de valores: {{ res["faixa-valores"] }}</p>
+        </div>
+        {% endfor %}
     </div>
 </body>
 </html>

@@ -25,10 +25,11 @@ def landing_page():
             # turns the id of the found object into a string (may not be strictly necessary)
             result['_id'] = str(result['_id'])
             # shows the information found
-            return "<p>Horario: {}</p>".format(result["horario"])
+            # return "<p>Horario: {}</p>".format(result["horario"])
         # aborts with error 404 if not found
         except:
             abort(404)
+        return render_template("index.html", result = result)
     
     return render_template("index.html")
 

@@ -16,14 +16,21 @@
             <label for="nome">Enter the name of the restaurant you want to see information about:</label>
             <br><br>
             <input type="text" name="nome">
+            <input type="submit" name="sub" value="Submit">
         </form>
         <hr>
         <div class="show">
-        {% for res in result %}
-            <p>Horario de funcionamento: {{ res["horario"] }}</p>
-            <p>Faixa de valores: {{ res["faixa-valores"] }}</p>
-        </div>
-        {% endfor %}
+        <!--Checks if variable result is defined or not. If not defined, nothing has been sent
+        through the input, so it doesn't try to render in anything-->
+        {% if result is defined %}
+            {% for n in range(1) %}
+                <p>Horario de funcionamento: {{ result["horario"] }}</p>
+                <p>Faixa de valores: {{ result["faixa-valores"] }}</p>
+            </div>
+            {% endfor %}
+            <br><br>
+        {% endif %}
+        <a href="/"><button>Refresh</button></a>
     </div>
 </body>
 </html>

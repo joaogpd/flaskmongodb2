@@ -26,6 +26,7 @@
             {% for n in range(1) %}
                 <p>Horario de funcionamento: {{ result["horario"] }}</p>
                 <p>Faixa de valores: {{ result["faixa-valores"] }}</p>
+                <a href="/{{ result["nome"] }}/"><button>Ir para o {{ result["nome"] }}</button></a>
             </div>
             {% endfor %}
             <br><br>

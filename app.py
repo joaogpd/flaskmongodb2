@@ -17,20 +17,27 @@ def landing_page():
     # by checking the method to be POST, it takes the input text value and parses the collection for the given key (in this case the name)
     if request.method == "POST":
         # takes the input value
-        nome = request.form["nome"]
+        restname = request.form["nome"]
         # parses collection for given key
-        result = col.find_one({"nome": nome})
+        result = col.find_one({"nome": restname})
         # checks whether or not the key is present in the collection
         try:
             # turns the id of the found object into a string (may not be strictly necessary)
             result['_id'] = str(result['_id'])
             # shows the information found
             # return "<p>Horario: {}</p>".format(result["horario"])
+            # return redirect("/{}/".format(restname))
         # aborts with error 404 if not found
         except:
             abort(404)
         return render_template("index.html", result = result)
     
     return render_template("index.html")
+
+@app.route("/<name>/")
+def restaurant_page(name):
+    result = col.find_one({"nome": name})
+    return render_template("rest.html", result = result)
+
 
     

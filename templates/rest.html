@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ result["nome"] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/index.css') }}">
+</head>
+<body>
+    <h1>{{ result["nome"] }}</h1>
+    <h2>Horario de funcionamento:</h2>
+    <p>{{ result["horario"] }}</p>
+    <h2>Faixa de valores:</h2>
+    <p>{{ result["faixa-valores"] }}</p>
+</body>
+</html>
